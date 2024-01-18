@@ -8,7 +8,7 @@ final class PhoneBookViewController: UIViewController {
     var phoneBook: PhoneBook? 
     weak var coordinator: MainCoordinator?
     
-    deinit {print("PhoneBookViewController has been deinit!!")}
+    deinit { print("PhoneBookViewController has been deinit!!") }
 }
 
 // MARK: - LifeCycle

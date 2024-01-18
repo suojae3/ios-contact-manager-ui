@@ -17,7 +17,14 @@ class HeaderView: UIView {
     }
     
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: UIView.noIntrinsicMetric, height: 144)
+        switch UIApplication.shared.preferredContentSizeCategory {
+        case .accessibilityExtraExtraExtraLarge:
+            return CGSize(width: UIView.noIntrinsicMetric, height: 170)
+        case .accessibilityExtraExtraLarge:
+            return CGSize(width: UIView.noIntrinsicMetric, height: 165)
+        default:
+            return CGSize(width: UIView.noIntrinsicMetric, height: 144)
+        }
     }
 }
 
