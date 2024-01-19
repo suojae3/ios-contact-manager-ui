@@ -15,3 +15,10 @@ final class PhoneBook {
 }
 
 
+// MARK: - Delegate
+extension PhoneBook: UpdatePhoneBookDelegate {
+    func update(userInfo: [User]) {
+        categorizedContactInfo = userInfo
+    }
+}
+    

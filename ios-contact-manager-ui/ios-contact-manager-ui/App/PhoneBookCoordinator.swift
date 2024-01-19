@@ -22,6 +22,7 @@ final class PhoneBookCoordinator: Coordinator {
         phoneBookViewController.coordinator = self
         phoneBookViewController.userData = phoneBook.categorizedContactInfo //시작값 셋팅
         phoneBook.setDelegate(with: phoneBookViewController)
+        phoneBookViewController.setDelegate(with: phoneBook)
         navigationController.pushViewController(phoneBookViewController, animated: true)
     }
 }
