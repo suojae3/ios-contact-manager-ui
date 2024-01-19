@@ -12,7 +12,7 @@ final class RegisterViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var phoneBook: PhoneBook?
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: RegisterUserInfoDelegate?
     
     var isRightAgeInput = false
     var isRightNameInput = false
@@ -71,16 +71,17 @@ final class RegisterViewController: UIViewController {
             isRightPhoneNumInput = false
         }
     }
-
     
     @IBAction private func saveButtonTapped(_ sender: UIBarButtonItem) {
         guard validateTextField() == true else { return }
         print("연락처 저장됨")
-        phoneBook?.categorizedContactInfo.append(User(
-                                                userID: UUID(),
-                                                name: nameTextField.text ?? "",
-                                                phoneNumber: phoneNumberTextField.text ?? "",
-                                                age: Int(ageTextField.text ?? "") ?? 0)
+        phoneBook?.categorizedContactInfo.append(
+            User(
+                userID: UUID(),
+                name: nameTextField.text ?? "",
+                phoneNumber: phoneNumberTextField.text ?? "",
+                age: Int(ageTextField.text ?? "") ?? 0
+            )
         )
         self.dismiss(animated: true)
     }
@@ -121,17 +122,23 @@ private extension RegisterViewController {
     
     // TextCount
     func validateCountCondition(input: String, condition: (Int,Int)) -> Bool {
-        guard input.count >= condition.0 else { print("2글자 이상의 이름을 입력해 주세요."); return false }
-        guard input.count < condition.1 else { print("1~99의 숫자를 입력해 주세요."); return false }
+        guard input.count >= condition.0 else {
+            print("2글자 이상의 이름을 입력해 주세요.")
+            return false
+        }
+        guard input.count < condition.1 else {
+            print("1~99의 숫자를 입력해 주세요.")
+            return false
+        }
         return true
     }
 }
-    
+
 
 // MARK: - UI 관련 로직
 private extension RegisterViewController {
     
-    func changeTextBorderColor(textField: UITextField, color: CGColor) {
+    private func changeTextBorderColor(textField: UITextField, color: CGColor) {
         textField.layer.borderColor = color
         textField.layer.borderWidth = 2
     }
