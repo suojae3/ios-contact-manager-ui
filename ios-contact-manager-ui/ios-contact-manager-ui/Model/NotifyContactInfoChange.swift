@@ -2,7 +2,7 @@
 import Foundation
 
 protocol UpdatePhoneBookDelegate: AnyObject {
-    func update(userInfo: [User])
+    func update()
 }
 
 @propertyWrapper
@@ -15,7 +15,7 @@ struct NotifyContactInfoChange {
         get { value }
         set {
             value = newValue
-            updateDelegate?.update(userInfo: value)
+            updateDelegate?.update()
         }
     }
     

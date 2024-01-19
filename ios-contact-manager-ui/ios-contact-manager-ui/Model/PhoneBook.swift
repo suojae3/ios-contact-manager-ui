@@ -12,6 +12,12 @@ final class PhoneBook {
     }
 
     deinit { print("PhoneBook has been deinit!!")}
+        
 }
 
 
+extension PhoneBook {
+    func removeContact(at index: Int) {
+        categorizedContactInfo.remove(at: index)
+    }
+}

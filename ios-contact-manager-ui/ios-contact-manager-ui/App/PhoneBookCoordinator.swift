@@ -20,7 +20,7 @@ final class PhoneBookCoordinator: Coordinator {
     func start() {
         let phoneBookViewController = PhoneBookViewController()
         phoneBookViewController.coordinator = self
-        phoneBookViewController.userData = phoneBook.categorizedContactInfo //시작값 셋팅
+        phoneBookViewController.phoneBook = phoneBook
         phoneBook.setDelegate(with: phoneBookViewController)
         navigationController.pushViewController(phoneBookViewController, animated: true)
     }

@@ -4,6 +4,7 @@ import UIKit
 // MARK: - PhoneBookViewController Init & Deinit
 final class PhoneBookViewController: UIViewController {
     
+    var phoneBook: PhoneBook?
     var filteredArr: [String] = []
     var filteredIdx: [Int] = []
     
@@ -14,7 +15,7 @@ final class PhoneBookViewController: UIViewController {
         return isActive && isSearchBarHasText
     }
     
-    var userData: [User]? = nil
+//    var userData: [User]? = nil
     let tableView = UITableView()
     weak var coordinator: RegisterUserInfoDelegate?
     
@@ -83,7 +84,7 @@ extension PhoneBookViewController: UITableViewDataSource {
         if isFiltering {
             return filteredIdx.count
         } else {
-            return userData?.count ?? 0
+            return phoneBook?.categorizedContactInfo.count ?? 0
         }
     }
     
@@ -97,13 +98,21 @@ extension PhoneBookViewController: UITableViewDataSource {
         } else {
             print("isFiltering: \(isFiltering)")
             guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
-            guard let user = userData?[indexPath.row] else { return UITableViewCell() }
+            guard let user = phoneBook?.categorizedContactInfo[indexPath.row] else { return UITableViewCell() }
             
             cell.nameLabel.text = "\(user.name)(\(user.age))"
             cell.phoneNumberLabel.text = user.phoneNumber
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            phoneBook?.removeContact(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
 }
 // MARK: - View Transition
 private extension PhoneBookViewController {
@@ -117,8 +126,7 @@ private extension PhoneBookViewController {
 
 // MARK: - Delegate
 extension PhoneBookViewController: UpdatePhoneBookDelegate {
-    func update(userInfo: [User]) {
-        userData = userInfo
+    func update() {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
