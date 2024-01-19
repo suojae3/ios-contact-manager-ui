@@ -18,6 +18,9 @@
 		08E3AB972B43BB620083012B /* PhoneBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E3AB962B43BB620083012B /* PhoneBookViewController.swift */; };
 		08E3AB9C2B43BB650083012B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E3AB9B2B43BB650083012B /* Assets.xcassets */; };
 		08E3AB9F2B43BB650083012B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E3AB9D2B43BB650083012B /* LaunchScreen.storyboard */; };
+		8942F8912B5A0FFD00E4B83B /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942F8902B5A0FFD00E4B83B /* SearchModel.swift */; };
+		8942F8932B5A148300E4B83B /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942F8922B5A148300E4B83B /* SearchTableView.swift */; };
+		8942F8BD2B5A7BB200E4B83B /* SearchedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942F8BC2B5A7BB200E4B83B /* SearchedTableViewController.swift */; };
 		89566E522B43FAF70085E2CF /* PhoneBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89566E502B43FAF70085E2CF /* PhoneBookTableViewCell.swift */; };
 		89566E532B43FAF70085E2CF /* PhoneBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89566E512B43FAF70085E2CF /* PhoneBookTableViewCell.xib */; };
 		89566E552B4516F20085E2CF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89566E542B4516F20085E2CF /* HeaderView.xib */; };
@@ -40,6 +43,9 @@
 		08E3AB9B2B43BB650083012B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08E3AB9E2B43BB650083012B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08E3ABA02B43BB650083012B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8942F8902B5A0FFD00E4B83B /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		8942F8922B5A148300E4B83B /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableView.swift; sourceTree = "<group>"; };
+		8942F8BC2B5A7BB200E4B83B /* SearchedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedTableViewController.swift; sourceTree = "<group>"; };
 		89566E502B43FAF70085E2CF /* PhoneBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookTableViewCell.swift; sourceTree = "<group>"; };
 		89566E512B43FAF70085E2CF /* PhoneBookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBookTableViewCell.xib; sourceTree = "<group>"; };
 		89566E542B4516F20085E2CF /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 				89D579A12B4E290500FC31A1 /* RegisterViewController.storyboard */,
 				89D579A32B4E291700FC31A1 /* RegisterViewController.swift */,
 				08E3AB962B43BB620083012B /* PhoneBookViewController.swift */,
+				8942F8BC2B5A7BB200E4B83B /* SearchedTableViewController.swift */,
 				083CC5012B55245D00619E89 /* ViewController+Extension.swift */,
 			);
 			path = ViewController;
@@ -99,6 +106,8 @@
 				08D566502B43E8E900E75000 /* User.swift */,
 				08D566542B43ED3900E75000 /* PhoneBook.swift */,
 				083425122B51260500EE3C40 /* NotifyContactInfoChange.swift */,
+				8942F8902B5A0FFD00E4B83B /* SearchModel.swift */,
+				8942F8922B5A148300E4B83B /* SearchTableView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,7 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8942F8912B5A0FFD00E4B83B /* SearchModel.swift in Sources */,
+				8942F8932B5A148300E4B83B /* SearchTableView.swift in Sources */,
 				89D579A42B4E291700FC31A1 /* RegisterViewController.swift in Sources */,
+				8942F8BD2B5A7BB200E4B83B /* SearchedTableViewController.swift in Sources */,
 				08D566512B43E8E900E75000 /* User.swift in Sources */,
 				083425132B51260500EE3C40 /* NotifyContactInfoChange.swift in Sources */,
 				89566E522B43FAF70085E2CF /* PhoneBookTableViewCell.swift in Sources */,

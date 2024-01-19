@@ -3,6 +3,15 @@ import UIKit
 
 // MARK: - PhoneBookViewController Init & Deinit
 final class PhoneBookViewController: UIViewController {
+
+    var searchedUserDataArray = [User]()
+    
+    var isFiltering2: Bool {
+        let searchController = self.navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        return isActive
+    }
+    var isFiltering = false
     
     var userData: [User]? = nil
     let tableView = UITableView()
@@ -15,6 +24,15 @@ final class PhoneBookViewController: UIViewController {
 extension PhoneBookViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let searchController = UISearchController(searchResultsController: self)
+        
+        searchController.searchBar.placeholder = "검색"
+        self.navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+        searchController.automaticallyShowsCancelButton = true
+        
+        
         setupTableView()
         setupUI()
     }
@@ -59,20 +77,41 @@ private extension PhoneBookViewController {
 
 
 // MARK: - TableView Delegate
-extension PhoneBookViewController: UITableViewDataSource {
+extension PhoneBookViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userData?.count ?? 0
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.isFiltering {
+            print("필터링-셀 갯수")
+            print(searchedUserDataArray.count)
+            return searchedUserDataArray.count
+        } else {
+            print("안됨")
+            return userData?.count ?? 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
-        guard let user = userData?[indexPath.row] else { return UITableViewCell() }
-        
-        cell.nameLabel.text = "\(user.name)(\(user.age))"
-        cell.phoneNumberLabel.text = user.phoneNumber
-        return cell
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.isFiltering {
+            print("isFiltering on")
+//            let cell = UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
+            let user = searchedUserDataArray[indexPath.row]
+            cell.nameLabel.text = "\(user.name)(\(user.age))"
+            cell.phoneNumberLabel.text = user.phoneNumber
+//            print(user)
+//            print(cell)
+            return cell
+            
+        } else {
+            print("isFiterning off")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
+            guard let user = userData?[indexPath.row] else { return UITableViewCell() }
+            
+            cell.nameLabel.text = "\(user.name)(\(user.age))"
+            cell.phoneNumberLabel.text = user.phoneNumber
+//            print(cell)
+            return cell
+        }
     }
 }
 // MARK: - View Transition
@@ -94,3 +133,24 @@ extension PhoneBookViewController: UpdatePhoneBookDelegate {
         }
     }
 }
+
+// MARK: - Search
+//extension PhoneBookViewController: UISearchBarDelegate {
+//    
+//}
+
+extension PhoneBookViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text?.lowercased() else { return }
+        for i in 0...userData!.count - 1 {
+            if userData?[i].name == text {
+                searchedUserDataArray.append(userData![i])
+                isFiltering = true
+                self.tableView.reloadData()
+
+            }
+        }
+    }
+}
+
+
