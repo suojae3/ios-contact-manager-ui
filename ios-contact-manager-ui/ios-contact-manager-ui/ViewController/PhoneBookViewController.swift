@@ -4,6 +4,16 @@ import UIKit
 // MARK: - PhoneBookViewController Init & Deinit
 final class PhoneBookViewController: UIViewController {
     
+    var filteredArr: [String] = []
+    var filteredIdx: [Int] = []
+    
+    var isFiltering: Bool {
+        let searchController = self.navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        return isActive && isSearchBarHasText
+    }
+    
     var userData: [User]? = nil
     let tableView = UITableView()
     weak var coordinator: RegisterUserInfoDelegate?
@@ -15,6 +25,14 @@ final class PhoneBookViewController: UIViewController {
 extension PhoneBookViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.placeholder = "검색"
+        searchController.searchBar.scopeButtonTitles = ["이름", "나이", "전화번호"]
+        self.navigationItem.searchController = searchController
+        
+        searchController.searchResultsUpdater = self
+        
         setupTableView()
         setupUI()
     }
@@ -62,17 +80,29 @@ private extension PhoneBookViewController {
 extension PhoneBookViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userData?.count ?? 0
+        if isFiltering {
+            return filteredIdx.count
+        } else {
+            return userData?.count ?? 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
-        guard let user = userData?[indexPath.row] else { return UITableViewCell() }
-        
-        cell.nameLabel.text = "\(user.name)(\(user.age))"
-        cell.phoneNumberLabel.text = user.phoneNumber
-        return cell
+        if isFiltering {
+            print("isFiltering: \(isFiltering)")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
+            cell.nameLabel?.text = "\(nameIndexing[filteredIdx[indexPath.row]])(\(ageIndexing[filteredIdx[indexPath.row]]))"
+            cell.phoneNumberLabel?.text = phoneNumIndexing[filteredIdx[indexPath.row]]
+            return cell
+        } else {
+            print("isFiltering: \(isFiltering)")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
+            guard let user = userData?[indexPath.row] else { return UITableViewCell() }
+            
+            cell.nameLabel.text = "\(user.name)(\(user.age))"
+            cell.phoneNumberLabel.text = user.phoneNumber
+            return cell
+        }
     }
 }
 // MARK: - View Transition
@@ -92,5 +122,28 @@ extension PhoneBookViewController: UpdatePhoneBookDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
+    }
+}
+
+
+// MARK: - Search
+extension PhoneBookViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filteredArr = []
+        filteredIdx = []
+        guard let text = searchController.searchBar.text?.lowercased() else { return }
+        //        self.filteredArr = nameIndexing.filter{ $0.lowercased().contains(text) }
+        
+        for i in 0...nameIndexing.count - 1 {
+            if nameIndexing[i].contains(text) {
+                filteredArr.append(nameIndexing[i])
+                filteredIdx.append(i)
+            }
+        }
+        print(isFiltering)
+        print(filteredArr)
+        print(filteredIdx)
+        dump(searchController.searchBar.text)
+        self.tableView.reloadData()
     }
 }

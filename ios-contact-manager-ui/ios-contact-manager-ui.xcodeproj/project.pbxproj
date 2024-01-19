@@ -18,6 +18,7 @@
 		08E3AB972B43BB620083012B /* PhoneBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E3AB962B43BB620083012B /* PhoneBookViewController.swift */; };
 		08E3AB9C2B43BB650083012B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08E3AB9B2B43BB650083012B /* Assets.xcassets */; };
 		08E3AB9F2B43BB650083012B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08E3AB9D2B43BB650083012B /* LaunchScreen.storyboard */; };
+		8942F8BF2B5A89D300E4B83B /* SearchIndexings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8942F8BE2B5A89D300E4B83B /* SearchIndexings.swift */; };
 		89566E522B43FAF70085E2CF /* PhoneBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89566E502B43FAF70085E2CF /* PhoneBookTableViewCell.swift */; };
 		89566E532B43FAF70085E2CF /* PhoneBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89566E512B43FAF70085E2CF /* PhoneBookTableViewCell.xib */; };
 		89566E552B4516F20085E2CF /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89566E542B4516F20085E2CF /* HeaderView.xib */; };
@@ -40,6 +41,7 @@
 		08E3AB9B2B43BB650083012B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08E3AB9E2B43BB650083012B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08E3ABA02B43BB650083012B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8942F8BE2B5A89D300E4B83B /* SearchIndexings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIndexings.swift; sourceTree = "<group>"; };
 		89566E502B43FAF70085E2CF /* PhoneBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookTableViewCell.swift; sourceTree = "<group>"; };
 		89566E512B43FAF70085E2CF /* PhoneBookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneBookTableViewCell.xib; sourceTree = "<group>"; };
 		89566E542B4516F20085E2CF /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				08D566502B43E8E900E75000 /* User.swift */,
 				08D566542B43ED3900E75000 /* PhoneBook.swift */,
 				083425122B51260500EE3C40 /* NotifyContactInfoChange.swift */,
+				8942F8BE2B5A89D300E4B83B /* SearchIndexings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89D579A42B4E291700FC31A1 /* RegisterViewController.swift in Sources */,
+				8942F8BF2B5A89D300E4B83B /* SearchIndexings.swift in Sources */,
 				08D566512B43E8E900E75000 /* User.swift in Sources */,
 				083425132B51260500EE3C40 /* NotifyContactInfoChange.swift in Sources */,
 				89566E522B43FAF70085E2CF /* PhoneBookTableViewCell.swift in Sources */,

@@ -83,6 +83,9 @@ final class RegisterViewController: UIViewController {
                 age: Int(ageTextField.text ?? "") ?? 0
             )
         )
+        nameIndexing.append(nameTextField.text ?? "")
+        phoneNumIndexing.append(phoneNumberTextField.text ?? "")
+        ageIndexing.append(Int(ageTextField.text ?? "") ?? 0)
         self.dismiss(animated: true)
     }
     

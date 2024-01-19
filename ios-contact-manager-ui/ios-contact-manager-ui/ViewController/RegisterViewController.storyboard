@@ -101,15 +101,15 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <viewLayoutGuide key="safeArea" id="oFN-Xl-Wjb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xfM-Lk-Q2i" secondAttribute="trailing" constant="10" id="BbL-mW-D92"/>
-                            <constraint firstItem="Deg-7G-bMT" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Ebx-A2-JF6"/>
+                            <constraint firstItem="oFN-Xl-Wjb" firstAttribute="trailing" secondItem="xfM-Lk-Q2i" secondAttribute="trailing" constant="10" id="BbL-mW-D92"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="centerX" secondItem="oFN-Xl-Wjb" secondAttribute="centerX" id="Ebx-A2-JF6"/>
                             <constraint firstItem="xfM-Lk-Q2i" firstAttribute="top" secondItem="Deg-7G-bMT" secondAttribute="bottom" constant="30" id="KzO-7o-hFl"/>
-                            <constraint firstItem="Deg-7G-bMT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OXs-Lk-imm"/>
-                            <constraint firstItem="Deg-7G-bMT" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SAr-Tc-5FF"/>
-                            <constraint firstItem="xfM-Lk-Q2i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="mhv-s4-lbV"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="leading" secondItem="oFN-Xl-Wjb" secondAttribute="leading" id="OXs-Lk-imm"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="top" secondItem="oFN-Xl-Wjb" secondAttribute="top" id="SAr-Tc-5FF"/>
+                            <constraint firstItem="xfM-Lk-Q2i" firstAttribute="leading" secondItem="oFN-Xl-Wjb" secondAttribute="leading" constant="10" id="mhv-s4-lbV"/>
                         </constraints>
                     </view>
                     <connections>
