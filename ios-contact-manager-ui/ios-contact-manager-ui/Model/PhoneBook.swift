@@ -11,7 +11,7 @@ final class PhoneBook {
         _categorizedContactInfo.updateDelegate = delegate
     }
 
-    deinit { print("PhoneBook has been deinit!!")}
+    deinit { print("PhoneBook has been deinit!!") }
         
 }
 
@@ -19,5 +19,8 @@ final class PhoneBook {
 extension PhoneBook {
     func removeContact(at index: Int) {
         categorizedContactInfo.remove(at: index)
+        nameIndexing.remove(at: index)
+        ageIndexing.remove(at: index)
+        phoneNumIndexing.remove(at: index)
     }
 }
