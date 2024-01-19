@@ -4,9 +4,9 @@ import UIKit
 // MARK: - PhoneBookViewController Init & Deinit
 final class PhoneBookViewController: UIViewController {
     
+    var userData: [User]? = nil
     let tableView = UITableView()
-    var phoneBook: PhoneBook? 
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: RegisterUserInfoDelegate?
     
     deinit { print("PhoneBookViewController has been deinit!!") }
 }
@@ -15,7 +15,6 @@ final class PhoneBookViewController: UIViewController {
 extension PhoneBookViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        phoneBook?.delegate = self 
         setupTableView()
         setupUI()
     }
@@ -25,7 +24,6 @@ extension PhoneBookViewController {
 private extension PhoneBookViewController {
     func setupTableView() {
         tableView.dataSource = self
-        
         let nib = UINib(nibName: "PhoneBookTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: PhoneBookTableViewCell.reuseID)
         setupTableHeaderView()
@@ -38,7 +36,6 @@ private extension PhoneBookViewController {
         header.frame.size = size
         tableView.tableHeaderView = header
     }
-
 }
 
 // MARK: - SetupUI
@@ -65,15 +62,13 @@ private extension PhoneBookViewController {
 extension PhoneBookViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return phoneBook?.categorizedContactInfo.count ?? 0
+        return userData?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell,
-              let user = phoneBook?.categorizedContactInfo[indexPath.row]
-        else {
-            return UITableViewCell()
-        }
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PhoneBookTableViewCell.reuseID, for: indexPath) as? PhoneBookTableViewCell else { return UITableViewCell() }
+        guard let user = userData?[indexPath.row] else { return UITableViewCell() }
         
         cell.nameLabel.text = "\(user.name)(\(user.age))"
         cell.phoneNumberLabel.text = user.phoneNumber
@@ -81,21 +76,21 @@ extension PhoneBookViewController: UITableViewDataSource {
     }
 }
 // MARK: - View Transition
-extension PhoneBookViewController {
+private extension PhoneBookViewController {
     @objc func addButtonTapped() {
-        DispatchQueue.main.async {
-            self.coordinator?.goToRegisterViewController()
+        DispatchQueue.main.async { [weak self] in
+            self?.coordinator?.goToRegisterViewController()
         }
     }
 }
 
 
-
 // MARK: - Delegate
-extension PhoneBookViewController: updatePhoneBookDelegate {
-    func onUpdate() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+extension PhoneBookViewController: UpdatePhoneBookDelegate {
+    func update(userInfo: [User]) {
+        userData = userInfo
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
         }
     }
 }

@@ -1,39 +1,33 @@
 
 import UIKit
 
-protocol Coorninator {
-    var childCoordninators: [Coorninator] { get set }
+protocol Coordinator: AnyObject {
+    var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
     
     func start()
-    func goToRegisterViewController()
 }
 
-final class MainCoordinator: Coorninator {
-        
-    var childCoordninators = [Coorninator]()
+final class MainCoordinator: Coordinator {
+    
+    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
-    private let phoneBook = PhoneBook()
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let phoneBookViewController = PhoneBookViewController()
-        phoneBookViewController.coordinator = self
-        phoneBookViewController.phoneBook = phoneBook
-
-        navigationController.pushViewController(phoneBookViewController, animated: false)
+        let phoneBookCoordinator = PhoneBookCoordinator(navigationController: navigationController)
+        addChildCoordinator(phoneBookCoordinator)
+        phoneBookCoordinator.start()
     }
     
-    func goToRegisterViewController() {
-        let storyboard = UIStoryboard(name: "RegisterViewController", bundle: nil)
-        let registerViewController = storyboard.instantiateViewController(identifier: "RegisterViewController") as! RegisterViewController
-        registerViewController.coordinator = self
-        registerViewController.phoneBook = phoneBook
-
-        registerViewController.modalPresentationStyle = .formSheet
-        navigationController.present(registerViewController, animated: true)
+    func addChildCoordinator(_ coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func removeChildCoordinator(_ coordinator: Coordinator) {
+        childCoordinators = childCoordinators.filter { $0 !== coordinator }
     }
 }

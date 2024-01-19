@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		083425132B51260500EE3C40 /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083425122B51260500EE3C40 /* PropertyWrapper.swift */; };
+		083425132B51260500EE3C40 /* NotifyContactInfoChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083425122B51260500EE3C40 /* NotifyContactInfoChange.swift */; };
 		083CC5022B55245E00619E89 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083CC5012B55245D00619E89 /* ViewController+Extension.swift */; };
-		0851E79E2B44FC7600FDFBF1 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0851E79D2B44FC7600FDFBF1 /* Container.swift */; };
+		085616962B58BCF90027C597 /* PhoneBookCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 085616952B58BCF90027C597 /* PhoneBookCoordinator.swift */; };
 		086C4A1A2B56467C00D1276E /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086C4A192B56467C00D1276E /* MainCoordinator.swift */; };
 		08D566512B43E8E900E75000 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D566502B43E8E900E75000 /* User.swift */; };
 		08D566552B43ED3900E75000 /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D566542B43ED3900E75000 /* PhoneBook.swift */; };
@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		083425122B51260500EE3C40 /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
+		083425122B51260500EE3C40 /* NotifyContactInfoChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyContactInfoChange.swift; sourceTree = "<group>"; };
 		083CC5012B55245D00619E89 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
-		0851E79D2B44FC7600FDFBF1 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
+		085616952B58BCF90027C597 /* PhoneBookCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBookCoordinator.swift; sourceTree = "<group>"; };
 		086C4A192B56467C00D1276E /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		08D566502B43E8E900E75000 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		08D566542B43ED3900E75000 /* PhoneBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
@@ -64,9 +64,9 @@
 			children = (
 				08E3AB922B43BB620083012B /* AppDelegate.swift */,
 				08E3AB942B43BB620083012B /* SceneDelegate.swift */,
-				0851E79D2B44FC7600FDFBF1 /* Container.swift */,
 				08E3AB9D2B43BB650083012B /* LaunchScreen.storyboard */,
 				086C4A192B56467C00D1276E /* MainCoordinator.swift */,
+				085616952B58BCF90027C597 /* PhoneBookCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -98,7 +98,7 @@
 			children = (
 				08D566502B43E8E900E75000 /* User.swift */,
 				08D566542B43ED3900E75000 /* PhoneBook.swift */,
-				083425122B51260500EE3C40 /* PropertyWrapper.swift */,
+				083425122B51260500EE3C40 /* NotifyContactInfoChange.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 			files = (
 				89D579A42B4E291700FC31A1 /* RegisterViewController.swift in Sources */,
 				08D566512B43E8E900E75000 /* User.swift in Sources */,
-				083425132B51260500EE3C40 /* PropertyWrapper.swift in Sources */,
+				083425132B51260500EE3C40 /* NotifyContactInfoChange.swift in Sources */,
 				89566E522B43FAF70085E2CF /* PhoneBookTableViewCell.swift in Sources */,
 				08E3AB972B43BB620083012B /* PhoneBookViewController.swift in Sources */,
 				89566E572B4519000085E2CF /* HeaderView.swift in Sources */,
@@ -215,7 +215,7 @@
 				08E3AB932B43BB620083012B /* AppDelegate.swift in Sources */,
 				083CC5022B55245E00619E89 /* ViewController+Extension.swift in Sources */,
 				086C4A1A2B56467C00D1276E /* MainCoordinator.swift in Sources */,
-				0851E79E2B44FC7600FDFBF1 /* Container.swift in Sources */,
+				085616962B58BCF90027C597 /* PhoneBookCoordinator.swift in Sources */,
 				08E3AB952B43BB620083012B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
