@@ -74,6 +74,14 @@ extension PhoneBookViewController: UITableViewDataSource {
         cell.phoneNumberLabel.text = user.phoneNumber
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            userData?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+    }
 }
 // MARK: - View Transition
 private extension PhoneBookViewController {
