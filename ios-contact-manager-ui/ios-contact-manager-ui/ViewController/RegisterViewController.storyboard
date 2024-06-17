@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RegisterViewController" customModule="ios_contact_manager_ui" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-7G-bMT">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <items>
+                                    <navigationItem title="새 연락처" style="editor" id="iW8-nL-Akw">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Sqd-cs-pim">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="Y6W-OH-hqX" id="Z5b-Ki-epT"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="IUQ-6f-D4S">
+                                            <connections>
+                                                <action selector="saveButtonTapped:" destination="Y6W-OH-hqX" id="AjE-bQ-asc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <navigationBarAppearance key="standardAppearance"/>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xfM-Lk-Q2i">
+                                <rect key="frame" x="10" y="133" width="373" height="142"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3sH-PF-kcl">
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="이름" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xj-mZ-ea4">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Xpc-tt-hDj">
+                                                <rect key="frame" x="54.333333333333343" y="0.0" width="318.66666666666663" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="validateNameTextField:" destination="Y6W-OH-hqX" eventType="editingChanged" id="gcG-eV-x2c"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jrY-IM-u5B">
+                                        <rect key="frame" x="0.0" y="54" width="373" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="나이" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5m-jd-ZQJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MHn-LK-mHA">
+                                                <rect key="frame" x="54.333333333333343" y="0.0" width="318.66666666666663" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="validateAgeTextField:" destination="Y6W-OH-hqX" eventType="editingChanged" id="fmm-9G-TCb"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="atr-va-hqd">
+                                        <rect key="frame" x="0.0" y="108" width="373" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="연락처" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDm-uO-CJW">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="UNY-5K-eGI">
+                                                <rect key="frame" x="54.333333333333343" y="0.0" width="318.66666666666663" height="34"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="phoneNumberTextFieldChanged:" destination="Y6W-OH-hqX" eventType="editingChanged" id="m9c-TO-5Rp"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nDm-uO-CJW" firstAttribute="width" secondItem="h5m-jd-ZQJ" secondAttribute="width" id="34A-0O-ivA"/>
+                                    <constraint firstItem="UNY-5K-eGI" firstAttribute="width" secondItem="Xpc-tt-hDj" secondAttribute="width" id="XBS-Mq-5fq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oFN-Xl-Wjb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oFN-Xl-Wjb" firstAttribute="trailing" secondItem="xfM-Lk-Q2i" secondAttribute="trailing" constant="10" id="BbL-mW-D92"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="centerX" secondItem="oFN-Xl-Wjb" secondAttribute="centerX" id="Ebx-A2-JF6"/>
+                            <constraint firstItem="xfM-Lk-Q2i" firstAttribute="top" secondItem="Deg-7G-bMT" secondAttribute="bottom" constant="30" id="KzO-7o-hFl"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="leading" secondItem="oFN-Xl-Wjb" secondAttribute="leading" id="OXs-Lk-imm"/>
+                            <constraint firstItem="Deg-7G-bMT" firstAttribute="top" secondItem="oFN-Xl-Wjb" secondAttribute="top" id="SAr-Tc-5FF"/>
+                            <constraint firstItem="xfM-Lk-Q2i" firstAttribute="leading" secondItem="oFN-Xl-Wjb" secondAttribute="leading" constant="10" id="mhv-s4-lbV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="MHn-LK-mHA" id="igr-uY-mbo"/>
+                        <outlet property="cancelButton" destination="Sqd-cs-pim" id="rWS-IO-nFy"/>
+                        <outlet property="nameTextField" destination="Xpc-tt-hDj" id="i3i-03-d4S"/>
+                        <outlet property="phoneNumberTextField" destination="UNY-5K-eGI" id="BiV-2B-o4g"/>
+                        <outlet property="saveButton" destination="IUQ-6f-D4S" id="2Eq-Yf-2Wq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.75" y="-2.112676056338028"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
